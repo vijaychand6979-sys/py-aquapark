@@ -14,7 +14,7 @@ class IntegerRange:
     def __set_name__(
         self,
         owner: Type[Any],
-        name: Type[Any]
+        name: str
     ) -> None:
         self.protected_name = "_" + name
 
@@ -30,7 +30,7 @@ class IntegerRange:
     def __set__(
         self,
         instance: Optional[Any],
-        value: Type[Any]
+        value: int
     ) -> None:
         if not isinstance(value, int):
             raise TypeError()
@@ -83,7 +83,7 @@ class Slide:
     def __init__(
         self,
         name: str,
-        limitation_class: SlideLimitationValidator
+        limitation_class: Type[SlideLimitationValidator]
     ) -> None:
         self.name = name
         self.limitation_class = limitation_class
